@@ -11,7 +11,6 @@ helm upgrade app-release-name ./helm
 
 helm uninstall app-release-name
 
-
 # DEPLOYMENT
 helm install node-app-default ./helm
 helm install node-app-dev ./helm --values values-dev.yaml
