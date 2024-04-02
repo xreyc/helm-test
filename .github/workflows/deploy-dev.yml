@@ -19,6 +19,16 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Install kubectl and AWS CLI
+      uses: actions/checkout@v2
+      with:
+        repository: 'aws-actions/aws-cli'
+
+    - name: Use AWS CLI v2
+      uses: aws-actions/aws-cli@v2
+      with:
+        aws-version: '2.0.64'
+
     - name: Set up Helm
       uses: azure/setup-helm@v1
       with:
@@ -31,9 +41,6 @@ jobs:
         aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ env.AWS_REGION }}
 
-    - uses: aws-actions/aws-cli@v2
-      with:
-        aws-version: '2.0.64'
     - name: Configure Kubeconfig
       run: |
         aws eks update-kubeconfig --name node-app-cluster --region ${{ env.AWS_REGION }}
