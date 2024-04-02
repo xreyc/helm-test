@@ -19,10 +19,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Helm
-      uses: azure/setup-helm@v1
-      with:
-        version: 'latest'
+    - name: Install Helm
+      run: |
+        curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+        chmod 700 get_helm.sh
+        ./get_helm.sh
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
