@@ -1,0 +1,14 @@
+appName: node-app
+
+namespace: node-app-default
+
+replicas: 2
+
+image:
+  repository: xreycdeveloper22/node-app
+  tag: v1.0.1
+  pullPolicy: IfNotPresent
+
+ingress:
+  path: /
+  host: xreyc.test

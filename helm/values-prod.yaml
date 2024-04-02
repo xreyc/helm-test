@@ -1,0 +1,5 @@
+namespace: node-app-prod
+
+ingress:
+  path: /prod
+  host: xreyc.prod
